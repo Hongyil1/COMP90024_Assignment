@@ -1,0 +1,86 @@
+.nav ul {
+	list-style: none;
+	background-color: #444;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+.nav li {
+	font-family: 'Oswald', sans-serif;
+	line-height: 30px;
+	height: 30px;
+	border-bottom: 1px solid #888;
+}
+
+.nav a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	transition: .3s background-color;
+}
+
+.nav a:hover {
+	background-color: #005f5f;
+}
+
+.nav a.active {
+	background-color: #fff;
+	color: #444;
+	cursor: default;
+}
+
+@media screen and (min-width: 600px) {
+	.nav li {
+		width: 150px;
+		border-bottom: none;
+		height: 43px;
+		line-height: 43px;
+	}
+	.nav li {
+		display: inline-block;
+		margin-right: -4px;
+	}
+}
+
+.piechart {
+	float: left;
+}
+
+.piechat #PieChartforNSW {
+	float: right;
+}
+
+.black_overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 1001;
+	-moz-opacity: 0.8;
+	opacity: .35;
+	filter: alpha(opacity = 88);
+}
+
+.white_content {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	width: 500px;
+	height: 400px;
+	padding: 20px;
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+	/* border: 2px solid white;
+	border-radius: 25px;
+	box-shadow: 10px 10px 5px #888888; */
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 0 0 0 10px #D73C51, 0 0 0 15px #FFCD47, 0 2px 5px 15px
+		rgba(0, 0, 0, .6);
+}

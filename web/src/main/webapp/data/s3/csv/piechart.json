@@ -1,0 +1,164 @@
+{
+  "list": [
+    {
+      "department": "south melbourne",
+      "num": 3773
+    },
+    {
+      "department": "brunswick west",
+      "num": 2716
+    },
+    {
+      "department": "carlton north",
+      "num": 2338
+    },
+    {
+      "department": "west melbourne",
+      "num": 2856
+    },
+    {
+      "department": "fitzroy north",
+      "num": 2926
+    },
+    {
+      "department": "south wharf",
+      "num": 1036
+    },
+    {
+      "department": "southbank",
+      "num": 3752
+    },
+    {
+      "department": "cremorne",
+      "num": 1435
+    },
+    {
+      "department": "williamstown",
+      "num": 3409
+    },
+    {
+      "department": "kensington",
+      "num": 3052
+    },
+    {
+      "department": "melbourne",
+      "num": 5488
+    },
+    {
+      "south yarra": "south yarra",
+      "num": 3710
+    },
+    {
+      "department": "fitzroy",
+      "num": 3815
+    },
+    {
+      "department": "north melbourne",
+      "num": 3885
+    },
+    {
+      "department": "middle park",
+      "num": 2009
+    },
+    {
+      "department": "yarraville",
+      "num": 2961
+    },
+    {
+      "department": "flemington",
+      "num": 3563
+    },
+    {
+      "department": "albert park",
+      "num": 2534
+    },
+    {
+      "department": "spotswood",
+      "num": 2051
+    },
+    {
+      "department": "ascot vale",
+      "num": 3353
+    },
+    {
+      "department": "parkville",
+      "num": 2821
+    },
+    {
+      "department": "northcote",
+      "num": 3598
+    },
+    {
+      "department": "windsor",
+      "num": 2947
+    },
+    {
+      "department": "brunswick",
+      "num": 3885
+    },
+    {
+      "department": "richmond",
+      "num": 4382
+    },
+    {
+      "department": "footscray",
+      "num": 4284
+    },
+    {
+      "department": "clifton hill",
+      "num": 2667
+    },
+    {
+      "department": "carlton",
+      "num": 3549
+    },
+    {
+      "department": "prahran",
+      "num": 4025
+    },
+    {
+      "department": "east melbourne",
+      "num": 3262
+    },
+    {
+      "department": "newport",
+      "num": 3122
+    },
+    {
+      "department": "docklands",
+      "num": 3521
+    },
+    {
+      "department": "port melbourne",
+      "num": 3465
+    },
+    {
+      "department": "collingwood",
+      "num": 3682
+    },
+    {
+      "department": "seddon",
+      "num": 2030
+    },
+    {
+      "department": "maribyrnong",
+      "num": 3164
+    },
+    {
+      "department": "brunswick east",
+      "num": 2646
+    },
+    {
+      "department": "travancore",
+      "num": 1330
+    },
+    {
+      "department": "princes hill",
+      "num": 1386
+    },
+    {
+      "department": "abbotsford",
+      "num": 3024
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "list": [
+    {
+      "department": "abbotsford",
+      "num": 5
+    },
+    {
+      "department": "albert park",
+      "num": 1
+    },
+    {
+      "department": "ascot vale",
+      "num": 2822
+    },
+    {
+      "department": "brunswick",
+      "num": 9
+    },
+    {
+      "department": "brunswick east",
+      "num": 7
+    },
+    {
+      "department": "carlton",
+      "num": 13
+    },
+    {
+      "department": "carlton north",
+      "num": 2
+    },
+    {
+      "department": "collingwood",
+      "num": 4
+    },
+    {
+      "department": "cremorne",
+      "num": 1
+    },
+    {
+      "department": "docklands",
+      "num": 18
+    },
+    {
+      "department": "east melbourne",
+      "num": 3
+    },
+    {
+      "department": "fitzroy",
+      "num": 19
+    },
+    {
+      "department": "fitzroy north",
+      "num": 3
+    },
+    {
+      "department": "flemington",
+      "num": 3
+    },
+    {
+      "department": "footscray",
+      "num": 5545
+    },
+    {
+      "department": "kensington",
+      "num": 42
+    },
+    {
+      "department": "maribyrnong",
+      "num": 1
+    },
+    {
+      "department": "melbourne",
+      "num": 306
+    },
+    {
+      "department": "newport",
+      "num": 1
+    },
+    {
+      "department": "north melbourne",
+      "num": 4
+    },
+    {
+      "department": "northcote",
+      "num": 3
+    },
+    {
+      "department": "parkville",
+      "num": 4
+    },
+    {
+      "department": "port melbourne",
+      "num": 10
+    },
+    {
+      "department": "prahran",
+      "num": 4
+    },
+    {
+      "department": "richmond",
+      "num": 13
+    },
+    {
+      "department": "seddon",
+      "num": 1
+    },
+    {
+      "department": "south melbourne",
+      "num": 455
+    },
+    {
+      "department": "south wharf",
+      "num": 5
+    },
+    {
+      "department": "south yarra",
+      "num": 11
+    },
+    {
+      "department": "southbank",
+      "num": 21
+    },
+    {
+      "department": "spotswood",
+      "num": 1540
+    },
+    {
+      "department": "travancore",
+      "num": 1
+    },
+    {
+      "department": "west melbourne",
+      "num": 9
+    },
+    {
+      "department": "williamstown",
+      "num": 3
+    },
+    {
+      "department": "windsor",
+      "num": 2
+    },
+    {
+      "department": "yarraville",
+      "num": 2
+    }
+  ]
+}

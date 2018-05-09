@@ -1,0 +1,16 @@
+{
+  "list": [
+    {
+      "department": "positive",
+      "num": 7095
+    },
+    {
+      "department": "negative",
+      "num": 2167
+    },
+    {
+      "department": "neutral",
+      "num": 3486
+    }
+  ]
+}

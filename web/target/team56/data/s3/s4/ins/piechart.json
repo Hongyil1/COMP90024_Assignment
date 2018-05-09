@@ -1,0 +1,16 @@
+{
+  "list": [
+    {
+      "department": "afternoon",
+      "num": 34
+    },
+    {
+      "department": "morning",
+      "num": 24
+    },
+    {
+      "department": "night",
+      "num": 17
+    }
+  ]
+}

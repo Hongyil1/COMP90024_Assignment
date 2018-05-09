@@ -1,0 +1,36 @@
+{
+  "list": [
+    {
+      "department": "ascot vale",
+      "num": 38
+    },
+    {
+      "department": "brunswick",
+      "num": 2
+    },
+    {
+      "department": "footscray",
+      "num": 197
+    },
+    {
+      "department": "kensington",
+      "num": 1
+    },
+    {
+      "department": "melbourne",
+      "num": 1
+    },
+    {
+      "department": "prahran",
+      "num": 1
+    },
+    {
+      "department": "south melbourne",
+      "num": 2
+    },
+    {
+      "department": "spotswood",
+      "num": 82
+    }
+  ]
+}

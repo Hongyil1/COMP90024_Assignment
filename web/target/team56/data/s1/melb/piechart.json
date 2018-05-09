@@ -1,0 +1,40 @@
+{
+  "list": [
+    {
+      "department": "education",
+      "num": 587
+    },
+    {
+      "department": "entertainment",
+      "num": 534
+    },
+    {
+      "department": "food",
+      "num": 438
+    },
+    {
+      "department": "living",
+      "num": 327
+    },
+    {
+      "department": "medical",
+      "num": 279
+    },
+    {
+      "department": "shopping",
+      "num": 521
+    },
+    {
+      "department": "sports",
+      "num": 176
+    },
+    {
+      "department": "traffic",
+      "num": 441
+    },
+    {
+      "department": "travel",
+      "num": 1008
+    }
+  ]
+}

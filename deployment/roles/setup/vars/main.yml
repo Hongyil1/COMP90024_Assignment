@@ -1,0 +1,37 @@
+couchdb_version: 2.1.1
+
+couchdb_mirror : https://archive.apache.org/dist/couchdb/source
+couchdb_cleanup: False
+
+couchdb_name : 'apache-couchdb-{{couchdb_version}}'
+couchdb_tgz : '{{couchdb_name}}.tar.gz'
+couchdb_url : '{{couchdb_mirror}}/{{couchdb_version}}/{{couchdb_tgz}}'
+
+default_home : '/home/ubuntu'
+couchdb_parent_source : '{{default_home}}/src'
+couchdb_source: '{{couchdb_parent_source}}/{{couchdb_name}}'
+linux_home: '/home'
+couchdb_home: '{{default_home}}/{{couchdb_name}}'
+
+tomcat_mirror: 'http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.9/bin/apache-tomcat-8.5.9.tar.gz'
+tomcat_folder: 'tomcat'
+tomcat_version: 'apache-tomcat-8.5.9'
+tomcat_tgz: 'tomcat.tar.gz'
+tomcat_home: '/opt/{{tomcat_version}}'
+
+couchdb_dep_pkgs:
+  - build-essential
+  - pkg-config
+  - erlang-nox
+  - erlang-dev
+  - erlang-reltool
+  - libicu-dev
+  - libmozjs185-dev
+  - libnspr4-dev
+  - libcurl4-openssl-dev
+  - runit
+  - curl
+  - python3-pip
+  - libopenmpi-dev
+  - default-jdk
+
