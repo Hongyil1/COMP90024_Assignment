@@ -37,7 +37,7 @@ if args.SuburbFile == 'check_string_for_empty' or args.SourceFile == 'check_stri
     print("Please input the filename.")
 
 # server = connection.conn_couchDB()
-server = pycouchdb.Server("http://%s:%s@127.0.0.1:5984/" % ('admin', 'admin'))
+server = pycouchdb.Server("http://%s:%s@127.0.0.1:5984/" % ('admin', 'admin*230'))
 if args.Dataset == "instagram":
     dbname = 'instagram'
 

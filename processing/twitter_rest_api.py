@@ -71,7 +71,7 @@ def get_tweets(api, time, geo_code, db, maxTweets, sub_dic):
 if __name__ == "__main__":
 
     # Database
-    server = pycouchdb.Server("http://%s:%s@127.0.0.1:5984/" % ('admin', 'admin'))
+    server = pycouchdb.Server("http://%s:%s@127.0.0.1:5984/" % ('admin', 'admin*230'))
     dbname = 'processed_data'
     db = server.database(dbname)
 

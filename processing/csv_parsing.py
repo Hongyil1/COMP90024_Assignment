@@ -39,7 +39,7 @@ keyList = ["suburb", "num"]
 valueList = []
 
 # server = connection.conn_couchDB()
-server = pycouchdb.Server("http://%s:%s@127.0.0.1:5984/" % ('admin', 'admin'))
+server = pycouchdb.Server("http://%s:%s@127.0.0.1:5984/" % ('admin', 'admin*230'))
 if args.Dataset == "aurin":
     dbname = 'aurin'
 if args.Dataset == "crime":

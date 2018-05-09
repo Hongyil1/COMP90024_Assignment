@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
     # Database
     # server = connection.conn_couchDB()
-    server = pycouchdb.Server("http://%s:%s@127.0.0.1:5984/" % ('admin', 'admin'))
+    server = pycouchdb.Server("http://%s:%s@127.0.0.1:5984/" % ('admin', 'admin*230'))
     dbname = 'processed_data'
     db = server.database(dbname)
 

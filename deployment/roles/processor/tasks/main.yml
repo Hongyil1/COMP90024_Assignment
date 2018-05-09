@@ -38,7 +38,7 @@
   tags: processor
 
 - name: permission for Tomcat
-  file: path='/home/ubuntu/ccc' state=directory mode=0775 owner=ubuntu group=ubuntu mode=u=rwX,g=rX,o=rX recurse=yes
+  file: path='/home/ubuntu/ccc/' state=directory mode=0775 owner=ubuntu group=ubuntu mode=u=rwX,g=rX,o=rX recurse=yes
   tags: configure
 
 - name: start the REST api script
@@ -51,6 +51,8 @@
   shell: cp /home/ubuntu/ccc/web/target/team56.war {{tomcat_home}}/webapps
 
 - name: start tomcat
+  become: yes
+  become_user: root
   shell: '{{tomcat_home}}/bin/startup.sh'
 
 #  with_items: "{{ groups['servers'] }}"
