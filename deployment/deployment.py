@@ -57,50 +57,50 @@ def main():
     start_time = time.time()
     ec2 = establish_connection()
     print('connection established...\n')
-    # print('creating instances...')
-    # instances = create_instances(num_of_instances)
-    #
-    # print('\nattaching volumes...')
-    # cont = False
-    # while not cont:
-    #     cont = True
-    #
-    #     for i in instances:
-    #         i.load()
-    #
-    #         if i.state['Name'] == 'running':
-    #             vols = i.volumes.all()
-    #             volumes = [v for v in vols]
-    #
-    #             print('i-', i.id, ' volume count: ', len(volumes))
-    #             if len(volumes) == 0:
-    #                 try:
-    #                     vol_info = create_volume(volume_size)
-    #                 except:
-    #                     print('failed to create volume')
-    #                     continue
-    #                 try:
-    #                     attach_volume(vol_info, i)
-    #                 except:
-    #                     print(' - failed to attach volume')
-    #                     continue
-    #         else:
-    #             cont = False
-    #             break
-    #
-    #     if cont is False:
-    #         print('instances are not ready - waiting')
-    #         time.sleep(15)
-    #
-    # print('\nIP addresses')
+    print('creating instances...')
+    instances = create_instances(num_of_instances)
+
+    print('\nattaching volumes...')
+    cont = False
+    while not cont:
+        cont = True
+
+        for i in instances:
+            i.load()
+
+            if i.state['Name'] == 'running':
+                vols = i.volumes.all()
+                volumes = [v for v in vols]
+
+                print('i-', i.id, ' volume count: ', len(volumes))
+                if len(volumes) == 0:
+                    try:
+                        vol_info = create_volume(volume_size)
+                    except:
+                        print('failed to create volume')
+                        continue
+                    try:
+                        attach_volume(vol_info, i)
+                    except:
+                        print(' - failed to attach volume')
+                        continue
+            else:
+                cont = False
+                break
+
+        if cont is False:
+            print('instances are not ready - waiting')
+            time.sleep(15)
+
+    print('\nIP addresses')
     hosts = []
-    hosts.append('115.146.86.247')
+    # hosts.append('115.146.86.247')
     # hosts.append('115.146.86.168')
     # hosts.append('115.146.85.135')
-    #
-    # for i in instances:
-    #     print(i.id + ':' + i.private_ip_address)
-    #     hosts.append(i.private_ip_address)
+
+    for i in instances:
+        print(i.id + ':' + i.private_ip_address)
+        hosts.append(i.private_ip_address)
 
     print('\nchecking SSH tunnel')
     while True:

@@ -11,161 +11,161 @@
 #====================================================
 #
 
-#- name: update apt cache
-#  apt: update_cache=yes
-#  tags: packages
-#
-#- name: install compilcation tools and other packages
-#  become: yes
-#  become_user: root
-#  apt: name={{ item }} state=present
-#  with_items: '{{couchdb_dep_pkgs}}'
-#  tags: packages
+- name: update apt cache
+  apt: update_cache=yes
+  tags: packages
 
-#- name: download Tomcat
-#  become: yes
-#  become_user: root
-#  get_url:
-#    url: '{{tomcat_mirror}}'
-#    dest: /tmp/{{tomcat_tgz}}
-#    mode: 0644
-#  tags: packages
+- name: install compilcation tools and other packages
+  become: yes
+  become_user: root
+  apt: name={{ item }} state=present
+  with_items: '{{couchdb_dep_pkgs}}'
+  tags: packages
 
-#- name: create directory
-#  become: yes
-#  become_user: root
-#  with_items:
-#    - '{{default_home}}/src'
-#    - '{{tomcat_home}}/backup'
-#  file:
-#    path: '{{ item }}'
-#    state: directory
-#    mode: 0755
-#
-#- name: unarchive Tomcat
-#  become: yes
-#  become_user: root
-#  shell: tar -xzf /tmp/{{tomcat_tgz}} -C /opt
-#
-#- name: permission for Tomcat
-#  file: path={{ tomcat_home }} state=directory mode=0775 owner=ubuntu group=ubuntu mode=u=rwX,g=rX,o=rX recurse=yes
-#  tags: configure
+- name: download Tomcat
+  become: yes
+  become_user: root
+  get_url:
+    url: '{{tomcat_mirror}}'
+    dest: /tmp/{{tomcat_tgz}}
+    mode: 0644
+  tags: packages
 
-#- name: download CouchDB
-#  become: yes
-#  become_user: root
-#  get_url:
-#    url: '{{couchdb_url}}'
-#    dest: /tmp/{{couchdb_tgz}}
-#    mode: 0644
-#
-#- name: unarchive CouchDB
-#  become: yes
-#  become_user: root
-#  unarchive:
-#    remote_src: yes
-#    src: /tmp/{{couchdb_tgz}}
-#    dest: '{{couchdb_parent_source}}'
-#    creates: '{{couchdb_source}}'
-#
-#- name: configure CouchDB
-#  become: yes
-#  become_user: root
-#  command: ./configure
-#  args:
-#    chdir: '{{couchdb_source}}'
-#    creates: '{{couchdb_source}}/rel/couchdb.config'
-#  tags: couchdb
-#
-#- name: build CouchDB
-#  become: yes
-#  become_user: root
-#  command: make release
-#  args:
-#    chdir: '{{couchdb_source}}'
-#    creates: '{{couchdb_source}}/rel/couchdb'
-#  tags: couchdb
-#
-#- name: install CouchDB
-#  become: yes
-#  become_user: root
-#  command: cp -r {{couchdb_source}}/rel/couchdb {{couchdb_home}}
-#  tags: couchdb
-#
-#- name: link back CouchDB to home path
-#  become: yes
-#  become_user: ubuntu
-#  file:
-#    src: '{{couchdb_home}}'
-#    dest: '{{default_home}}/couchdb'
-#    state: link
-#  tags: couchdb
-#
-#- name: cleanup
-#  become: yes
-#  become_user: root
-#  when: couchdb_cleanup
-#  with_items:
-#    - '{{couchdb_source}}'
-#  file:
-#    path: '{{item}}'
-#    state: absent
-#
-#- name: make directories
-#  file: path={{ item }} state=directory mode=0755 owner=ubuntu group=ubuntu
-#  with_items:
-#    - /var/log/couchdb
-#    - /etc/sv/couchdb/log
-#    - /mnt/couchdb/data
-#    - /etc/service
-#  tags: configuree
-#
-#- name: create local config files
-#  template: src={{ item }}.j2 dest={{ couchdb_home }}/etc/{{ item }}
-#  with_items:
-#    - local.ini
-#    - vm.args
-#  tags: configure
-#
-#- name: change the permission
-#  file: path={{ couchdb_home }} state=directory mode=0775 owner=ubuntu group=ubuntu mode=u=rwX,g=rX,o=rX recurse=yes
-#  tags: configure
-#
-#- name: change the ownership of the CouchDB directories
-#  become: yes
-#  become_user: ubuntu
-#  command: find {{couchdb_home}} -type d -exec chmod 0770 {} \;
-#  tags: couchdb
-#
-#- name: create /etc/sv/couchdb/log/run script
-#  template:
-#    src: log.run.j2
-#    dest: /etc/sv/couchdb/log/run
-#    mode: 0744
-#    owner: ubuntu
-#    group: ubuntu
-#  tags: configure
-#
-#- name: create /etc/sv/couchdb/run script
-#  template:
-#    src: run.j2
-#    dest: /etc/sv/couchdb/run
-#    mode: 0744
-#    owner: ubuntu
-#    group: ubuntu
-#  tags: configure
-#
-#- name: creating symbolic link for service
-#  file:
-#    src: /etc/sv/couchdb/
-#    dest: /etc/service/couchdb
-#    state: link
-#  tags: configure
-#
-#- name: wait 10 seconds for services to start
-#  pause:
-#    seconds: 10
-#  tags: configure
+- name: create directory
+  become: yes
+  become_user: root
+  with_items:
+    - '{{default_home}}/src'
+    - '{{tomcat_home}}/backup'
+  file:
+    path: '{{ item }}'
+    state: directory
+    mode: 0755
+
+- name: unarchive Tomcat
+  become: yes
+  become_user: root
+  shell: tar -xzf /tmp/{{tomcat_tgz}} -C /opt
+
+- name: permission for Tomcat
+  file: path={{ tomcat_home }} state=directory mode=0775 owner=ubuntu group=ubuntu mode=u=rwX,g=rX,o=rX recurse=yes
+  tags: configure
+
+- name: download CouchDB
+  become: yes
+  become_user: root
+  get_url:
+    url: '{{couchdb_url}}'
+    dest: /tmp/{{couchdb_tgz}}
+    mode: 0644
+
+- name: unarchive CouchDB
+  become: yes
+  become_user: root
+  unarchive:
+    remote_src: yes
+    src: /tmp/{{couchdb_tgz}}
+    dest: '{{couchdb_parent_source}}'
+    creates: '{{couchdb_source}}'
+
+- name: configure CouchDB
+  become: yes
+  become_user: root
+  command: ./configure
+  args:
+    chdir: '{{couchdb_source}}'
+    creates: '{{couchdb_source}}/rel/couchdb.config'
+  tags: couchdb
+
+- name: build CouchDB
+  become: yes
+  become_user: root
+  command: make release
+  args:
+    chdir: '{{couchdb_source}}'
+    creates: '{{couchdb_source}}/rel/couchdb'
+  tags: couchdb
+
+- name: install CouchDB
+  become: yes
+  become_user: root
+  command: cp -r {{couchdb_source}}/rel/couchdb {{couchdb_home}}
+  tags: couchdb
+
+- name: link back CouchDB to home path
+  become: yes
+  become_user: ubuntu
+  file:
+    src: '{{couchdb_home}}'
+    dest: '{{default_home}}/couchdb'
+    state: link
+  tags: couchdb
+
+- name: cleanup
+  become: yes
+  become_user: root
+  when: couchdb_cleanup
+  with_items:
+    - '{{couchdb_source}}'
+  file:
+    path: '{{item}}'
+    state: absent
+
+- name: make directories
+  file: path={{ item }} state=directory mode=0755 owner=ubuntu group=ubuntu
+  with_items:
+    - /var/log/couchdb
+    - /etc/sv/couchdb/log
+    - /mnt/couchdb/data
+    - /etc/service
+  tags: configuree
+
+- name: create local config files
+  template: src={{ item }}.j2 dest={{ couchdb_home }}/etc/{{ item }}
+  with_items:
+    - local.ini
+    - vm.args
+  tags: configure
+
+- name: change the permission
+  file: path={{ couchdb_home }} state=directory mode=0775 owner=ubuntu group=ubuntu mode=u=rwX,g=rX,o=rX recurse=yes
+  tags: configure
+
+- name: change the ownership of the CouchDB directories
+  become: yes
+  become_user: ubuntu
+  command: find {{couchdb_home}} -type d -exec chmod 0770 {} \;
+  tags: couchdb
+
+- name: create /etc/sv/couchdb/log/run script
+  template:
+    src: log.run.j2
+    dest: /etc/sv/couchdb/log/run
+    mode: 0744
+    owner: ubuntu
+    group: ubuntu
+  tags: configure
+
+- name: create /etc/sv/couchdb/run script
+  template:
+    src: run.j2
+    dest: /etc/sv/couchdb/run
+    mode: 0744
+    owner: ubuntu
+    group: ubuntu
+  tags: configure
+
+- name: creating symbolic link for service
+  file:
+    src: /etc/sv/couchdb/
+    dest: /etc/service/couchdb
+    state: link
+  tags: configure
+
+- name: wait 10 seconds for services to start
+  pause:
+    seconds: 10
+  tags: configure
 
 #sudo sv status couchdb
 #sudo sv stop couchdb

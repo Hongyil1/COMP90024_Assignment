@@ -12,20 +12,20 @@
 #
 
 ---
-#- name: install pip packages
-#  pip: name={{ item }} executable=pip3
-#  with_items:
-#    - tweepy
-#    - pycouchdb
-#    - nltk
-#    - textblob
-#    - python-dateutil
-#    - shapely
-#    - mpi4py
-#  tags: processor
-#
-#- name: ntlk modules
-#  shell: python3 -m nltk.downloader stopwords
+- name: install pip packages
+  pip: name={{ item }} executable=pip3
+  with_items:
+    - tweepy
+    - pycouchdb
+    - nltk
+    - textblob
+    - python-dateutil
+    - shapely
+    - mpi4py
+  tags: processor
+
+- name: ntlk modules
+  shell: python3 -m nltk.downloader stopwords
 
 - name: make directories
   file: path={{ item }} state=directory mode=0755 owner=ubuntu group=ubuntu
@@ -33,6 +33,27 @@
     - "{{ project_scripts }}"
   tags: processor
 
-- name: downlaod scripts and files from github
-  git: repo=https://github.com/apache/couchdb.git dest={{ project_scripts }} accept_hostkey=yes
+- name: download scripts and files from github
+  git: repo=https://github.com/shalithakaru/COMP90024_Assignment.git dest={{ project_scripts }}
   tags: processor
+
+- name: permission for Tomcat
+  file: path='/home/ubuntu/ccc' state=directory mode=0775 owner=ubuntu group=ubuntu mode=u=rwX,g=rX,o=rX recurse=yes
+  tags: configure
+
+- name: start the REST api script
+  shell: nohup python3 -u /home/ubuntu/ccc/processing/twitter_rest_api.py > /home/ubuntu/ccc/processing/twitter_REST.log &
+
+- name: start the STREAM api script
+  shell: nohup python3 -u /home/ubuntu/ccc/processing/twitter_stream_api.py > /home/ubuntu/ccc/processing/twitter_STREAM.log &
+
+- name: copy war file to tomcat server
+  shell: cp /home/ubuntu/ccc/web/target/team56.war {{tomcat_home}}/webapps
+
+- name: start tomcat
+  shell: '{{tomcat_home}}/bin/startup.sh'
+
+#  with_items: "{{ groups['servers'] }}"
+#  when: groups['servers'][0] == item
+
+

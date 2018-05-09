@@ -34,4 +34,5 @@ couchdb_dep_pkgs:
   - python3-pip
   - libopenmpi-dev
   - default-jdk
+  - git
 
