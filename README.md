@@ -1,14 +1,14 @@
 ## Team 56
-===================================================
+
  * Xiaolu Zhang 886161
  * Jianbo Ma 807590
  * Hongyi Lin 838776
  * Xiaoyu Wang 799778
  * Shalitha Weerakoon Karunatilleke 822379
  
- COMP90024 Cluster and Cloud Computing
- Social Media Analytics on Melbourne & Sydney
-====================================================
+# COMP90024 Cluster and Cloud Computing
+## Social Media Analytics on Melbourne & Sydney
+
 
 ### Prerequisites
 
@@ -19,7 +19,7 @@ If you have your own project
 * Create SSH keys and update the key pairs in NeCTAR portal with the key name 'team56'
 * Create a security group 'team56_security' with rules
 
-### Installing
+### Installation
 
 Install the requrements.txt in your enviroment or create a python virtual machine in your local
 
@@ -33,7 +33,7 @@ Change the credential information in this script
 vi deployment.py
 ```
 
-### Run the Script for Dynamic Deployment 
+### Run the Script for a Dynamic Deployment 
 ```
 python3 deployment.py
 ```
