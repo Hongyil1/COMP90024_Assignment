@@ -9,6 +9,9 @@
 # COMP90024 Cluster and Cloud Computing
 ## Social Media Analytics on Melbourne & Sydney
 
+### Example: Publised URL for Website
+
+[WEB](http://115.146.86.210:8080/team56/)
 
 ### Prerequisites
 
