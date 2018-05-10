@@ -1,3 +1,13 @@
+/**
+ *  Xiaolu Zhang 886161
+ *  Jianbo Ma 807590
+ *  Hongyi Lin 838776
+ *  Xiaoyu Wang 799778
+ *  Shalitha Weerakoon Karunatilleke 822379
+ *  COMP90024 Cluster and Cloud Computing
+ *  Social Media Analytics on Melbourne & Sydney
+ */
+
 package com.ccc.spring.dao;
 
 import java.util.ArrayList;
@@ -38,74 +48,11 @@ public class CouchConnector {
 		return allDocs;
 	}
 
-	// public static void main(String[] args) {
-	// CouchConnector c = new CouchConnector();
-	// String jsonOutput = c.getView("processed_data",
-	// "scenario/scenario3").toString();
-	// System.out.println(c.getView("processed_data", "scenario/scenario3").size());
-	// System.out.println("***" + jsonOutput);
-	//
-	// // PopularTwitter pt = new PopularTwitter();
-	// // ArrayList<JsonObject> res = (ArrayList<JsonObject>)
-	// // couchdb.getView("processed_data", view);
-	// // pt.positive = res.get(2).get("value").getAsInt();
-	// // pt.negative = res.get(0).get("value").getAsInt();
-	// // pt.neutral = res.get(1).get("value").getAsInt();
-	// // pt.recordData();
-	// // System.out.println("123");
-	//
-	//// LiquorLicenceList list = new LiquorLicenceList();
-	//// ArrayList<JsonObject> res = (ArrayList<JsonObject>)
-	// c.getView("processed_data", "scenario/scenario2");
-	//// for (int index = 0; index < res.size(); index++) {
-	//// String loc =
-	// res.get(index).get("key").getAsJsonArray().get(1).getAsString();
-	//// String sentiment =
-	// res.get(index).get("key").getAsJsonArray().get(0).getAsString();
-	//// int value = res.get(index).get("value").getAsInt();
-	//// System.out.println(loc + sentiment + value);
-	//// list.addElement(loc, sentiment, value);
-	//// }
-	//// list.getTotal();
-	//// System.out.println(list.list);
-	//// list.recordData();
-	//// c.scenario1(c, "scenario/scenario1_melbourne", "melb");
-	//// c.scenario1(c, "scenario/scenario1_melbourne", "syd");
-	//// c.scenario5(c, "scenario/scenario5");
-	// }
-
-	public void scenario1(CouchConnector couchdb, String view, String path) {
-		LifeStyleList list = new LifeStyleList();
-		ArrayList<JsonObject> res = (ArrayList<JsonObject>) couchdb.getView("processed_data", view);
-
-		for (int i = 0; i < res.size() / 3; i++) {
-			list.lifeStyleList.get(i).negative = res.get(i).get("value").getAsInt();
-		}
-		for (int i = res.size() / 3; i < res.size() / 3 * 2; i++) {
-			list.lifeStyleList.get(i - 9).neutral = res.get(i).get("value").getAsInt();
-		}
-		for (int i = res.size() / 3 * 2; i < res.size(); i++) {
-			list.lifeStyleList.get(i - 18).positive = res.get(i).get("value").getAsInt();
-		}
-		list.recordData(path);
-	}
-
-	public void scenario5(CouchConnector couchdb, String view) {
-		PopularTwitter pt = new PopularTwitter();
-		ArrayList<JsonObject> res = (ArrayList<JsonObject>) couchdb.getView("processed_data", view);
-		pt.positive = res.get(2).get("value").getAsInt();
-		pt.negative = res.get(0).get("value").getAsInt();
-		pt.neutral = res.get(1).get("value").getAsInt();
-		pt.recordData();
-	}
-
 	public static void main(String[] args) {
 		CouchConnector c = new CouchConnector();
 		String jsonOutput = c.getView("processed_data", "scenario/scenario4").toString();
 		System.out.println(c.getView("processed_data", "scenario/scenario4").size());
 		System.out.println("***" + jsonOutput);
-
-
 
 		CrimeList cl2 = new CrimeList();
 		ArrayList<JsonObject> res2 = (ArrayList<JsonObject>) c.getView("instagram", "scenario/scenario4");
