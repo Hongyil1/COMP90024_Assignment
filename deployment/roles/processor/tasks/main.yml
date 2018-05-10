@@ -42,17 +42,23 @@
   tags: configure
 
 - name: start the REST api script
+  become: yes
+  become_user: ubuntu
   shell: nohup python3 -u /home/ubuntu/ccc/processing/twitter_rest_api.py > /home/ubuntu/ccc/processing/twitter_REST.log &
 
 - name: start the STREAM api script
+  become: yes
+  become_user: ubuntu
   shell: nohup python3 -u /home/ubuntu/ccc/processing/twitter_stream_api.py > /home/ubuntu/ccc/processing/twitter_STREAM.log &
 
 - name: copy war file to tomcat server
+  become: yes
+  become_user: ubuntu
   shell: cp /home/ubuntu/ccc/web/target/team56.war {{tomcat_home}}/webapps
 
 - name: start tomcat
   become: yes
-  become_user: root
+  become_user: ubuntu
   shell: '{{tomcat_home}}/bin/startup.sh'
 
 #  with_items: "{{ groups['servers'] }}"
